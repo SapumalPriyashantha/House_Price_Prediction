@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import './home.css'
+import logo from '../../assets/img/houseImage.jpg'; // Adjust the path if necessary
 
 function Home() {
     const [formData, setFormData] = useState({
@@ -75,128 +77,300 @@ function Home() {
               </div>
               <div className="card-body">
                 <form onSubmit={handleSubmit} >
-                  <div className="mb-3">
-                    <label htmlFor="squareMeters" className="form-label">Square Meters</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="squareMeters" 
-                      name="squareMeters" 
-                      value={formData.squareMeters}
-                      onChange={handleChange}
-                      required
-                    />
 
-                    <label htmlFor="numberOfRooms" className="form-label">Number of room</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="numberOfRooms" 
-                      name="numberOfRooms" 
-                      value={formData.numberOfRooms}
-                      onChange={handleChange}
-                      required
-                    />
+                  <div className='left_container'>
+                    <img src={logo} alt="Logo" />
                   </div>
 
-                  <div className="mb-3">
-                    <label htmlFor="floors" className="form-label">Floors</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="floors" 
-                      name="floors" 
-                      value={formData.floors}
-                      onChange={handleChange}
-                      required
-                    />
+                  <div className='right_container'>
+                    <div className='right_upperContainer'>
+                      <div className='right_upperRightContainer'>
+                        <div>
+                        <label htmlFor="squareMeters" className="form-label">Square Meters</label>
+                        <input 
+                          type="text" 
+                          className="form-control" 
+                          id="squareMeters" 
+                          name="squareMeters" 
+                          value={formData.squareMeters}
+                          onChange={handleChange}
+                          required
+                        />
+                        </div>
 
-                    <label htmlFor="cityPartRange" className="form-label">City part range</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="cityPartRange" 
-                      name="cityPartRange" 
-                      value={formData.cityPartRange}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                        <div>
+                        <label htmlFor="floors" className="form-label">Floors</label>
+                        <input 
+                          type="text" 
+                          className="form-control" 
+                          id="floors" 
+                          name="floors" 
+                          value={formData.floors}
+                          onChange={handleChange}
+                          required
+                        />
+                        </div>
 
-                  <div className="mb-3">
-                    <label htmlFor="numPrevOwners" className="form-label">numPrevOwners</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="numPrevOwners" 
-                      name="numPrevOwners" 
-                      value={formData.numPrevOwners}
-                      onChange={handleChange}
-                      required
-                    />
+                        <div>
+                        <label htmlFor="numPrevOwners" className="form-label">numPrevOwners</label>
+                        <input 
+                          type="text" 
+                          className="form-control" 
+                          id="numPrevOwners" 
+                          name="numPrevOwners" 
+                          value={formData.numPrevOwners}
+                          onChange={handleChange}
+                          required
+                        />
+                        </div>
 
-                    <label htmlFor="made" className="form-label">made</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="made" 
-                      name="made" 
-                      value={formData.made}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                        <div>
+                        <label htmlFor="basement" className="form-label">basement</label>
+                        <input 
+                          type="text" 
+                          className="form-control" 
+                          id="basement" 
+                          name="basement" 
+                          value={formData.basement}
+                          onChange={handleChange}
+                          required
+                        />
+                        </div>
 
-                  <div className="mb-3">
-                    <label htmlFor="basement" className="form-label">basement</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="basement" 
-                      name="basement" 
-                      value={formData.basement}
-                      onChange={handleChange}
-                      required
-                    />
+                        <div>
+                        <label htmlFor="garage" className="form-label">garage</label>
+                        <input 
+                          type="text" 
+                          className="form-control" 
+                          id="garage" 
+                          name="garage" 
+                          value={formData.garage}
+                          onChange={handleChange}
+                          required
+                        />
+                        </div>
+                      </div>
 
-                    <label htmlFor="attic" className="form-label">attic</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="attic" 
-                      name="attic" 
-                      value={formData.attic}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                      <div className='right_upperLeftContainer'>
+                        <div>
+                          <label htmlFor="numberOfRooms" className="form-label">Number of room</label>
+                          <input 
+                            type="text" 
+                            className="form-control" 
+                            id="numberOfRooms" 
+                            name="numberOfRooms" 
+                            value={formData.numberOfRooms}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
 
-                  <div className="mb-3">
-                    <label htmlFor="garage" className="form-label">garage</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="garage" 
-                      name="garage" 
-                      value={formData.garage}
-                      onChange={handleChange}
-                      required
-                    />
+                        <div>
+                          <label htmlFor="cityPartRange" className="form-label">City part range</label>
+                          <input 
+                            type="text" 
+                            className="form-control" 
+                            id="cityPartRange" 
+                            name="cityPartRange" 
+                            value={formData.cityPartRange}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
 
-                    <label htmlFor="hasGuestRoom" className="form-label">hasGuestRoom</label>
-                    <input 
-                      type="text" 
-                      className="form-control" 
-                      id="hasGuestRoom" 
-                      name="hasGuestRoom" 
-                      value={formData.hasGuestRoom}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                        <div>
+                          <label htmlFor="made" className="form-label">made</label>
+                          <input 
+                            type="text" 
+                            className="form-control" 
+                            id="made" 
+                            name="made" 
+                            value={formData.made}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="attic" className="form-label">attic</label>
+                          <input 
+                            type="text" 
+                            className="form-control" 
+                            id="attic" 
+                            name="attic" 
+                            value={formData.attic}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasGuestRoom" className="form-label">hasGuestRoom</label>
+                          <input 
+                            type="text" 
+                            className="form-control" 
+                            id="hasGuestRoom" 
+                            name="hasGuestRoom" 
+                            value={formData.hasGuestRoom}
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
                   
-  
-                  {/* Add other input fields similarly */}
+                    <div className='right_lowerContainer'>
+                      <div className='right_lowerRightContainer'>
+                        <div>
+                          <label htmlFor="hasYard">Has Yard</label>
+                          <input
+                            type="checkbox"
+                            id="hasYard"
+                            name="hasYard"
+                            checked={formData.hasYard}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasYard: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="isNewBuilt">Is New Built</label>
+                          <input
+                            type="checkbox"
+                            id="isNewBuilt"
+                            name="isNewBuilt"
+                            checked={formData.isNewBuilt}
+                            onChange={(e) =>
+                              setFormData({ ...formData, isNewBuilt: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasStorageRoom">Has Storage Room</label>
+                          <input
+                            type="checkbox"
+                            id="hasStorageRoom"
+                            name="hasStorageRoom"
+                            checked={formData.hasStorageRoom}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasStorageRoom: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasBalcony">Has Balcony</label>
+                          <input
+                            type="checkbox"
+                            id="hasBalcony"
+                            name="hasBalcony"
+                            checked={formData.hasBalcony}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasBalcony: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasAirCondition">Has Air Condition</label>
+                          <input
+                            type="checkbox"
+                            id="hasAirCondition"
+                            name="hasAirCondition"
+                            checked={formData.hasAirCondition}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasAirCondition: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasSecuritySystem">Has Security System</label>
+                          <input
+                            type="checkbox"
+                            id="hasSecuritySystem"
+                            name="hasSecuritySystem"
+                            checked={formData.hasSecuritySystem}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasSecuritySystem: e.target.checked })
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      <div className='right_lowerLeftContainer'>
+                        <div>
+                          <label htmlFor="hasPool">Has Pool</label>
+                          <input
+                            type="checkbox"
+                            id="hasPool"
+                            name="hasPool"
+                            checked={formData.hasPool}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasPool: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasStormProtector">Has Storm Protector</label>
+                          <input
+                            type="checkbox"
+                            id="hasStormProtector"
+                            name="hasStormProtector"
+                            checked={formData.hasStormProtector}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasStormProtector: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasFirePlace">Has Fire Place</label>
+                          <input
+                            type="checkbox"
+                            id="hasFirePlace"
+                            name="hasFirePlace"
+                            checked={formData.hasFirePlace}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasFirePlace: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasSolarPanels">Has Solar Panels</label>
+                          <input
+                            type="checkbox"
+                            id="hasSolarPanels"
+                            name="hasSolarPanels"
+                            checked={formData.hasSolarPanels}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasSolarPanels: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="hasView">Has View</label>
+                          <input
+                            type="checkbox"
+                            id="hasView"
+                            name="hasView"
+                            checked={formData.hasView}
+                            onChange={(e) =>
+                              setFormData({ ...formData, hasView: e.target.checked })
+                            }
+                          />
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  
   
                   <div className="d-flex justify-content-between">
                     <button type="submit" className="btn btn-primary" id="predict-button">Predict</button>
