@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './home.css'
-import logo from '../../assets/img/houseImage.jpg'; // Adjust the path if necessary
+import logo from '../../assets/img/houseImage.jpg';
 import Swal from 'sweetalert2';
 
 function Home() {
@@ -50,14 +50,36 @@ function Home() {
           // Request successful
           const data = await response.json();
           console.log('Response from server:', data);
-          // Reset the form after successful submission if needed
-          handleReset();
+
+          Swal.fire({
+            title: 'Predicted Price',
+            text: "$ "+data.prediction,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Done',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              handleReset();
+            }
+          });
         } else {
           // Request failed
           console.error('Failed to send data to server');
+
+          Swal.fire(
+            'Error',
+            'Failed to send data to server',
+            'Error'
+          );
+
         }
       } catch (error) {
         console.error('Error:', error);
+
+        Swal.fire(
+          'Error',
+          'Catch error',
+          'Error'
+        );
       }
     };
     

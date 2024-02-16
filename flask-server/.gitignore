@@ -1,0 +1,18 @@
+# Virtual environment
+venv/
+
+# Compiled Python files
+*.pyc
+
+# Dependency directories
+__pycache__/
+node_modules/
+package-local.json/
+package.json/
+
+# Local configuration files
+instance/
+
+# IDE files
+.vscode/
+.idea/

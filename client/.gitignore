@@ -3,6 +3,10 @@
 # dependencies
 /node_modules
 /.pnp
+/package-local.json
+/package.json
+/public
+/README.md
 .pnp.js
 
 # testing

@@ -1,55 +1,76 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
+import numpy as np
 import pickle
-# import numpy as np
-from flask import jsonify
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Load the saved model
 with open('model/RandomForestPredictionsModel.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
 
-@app.route('/', methods=['GET', 'POST'])
-def members():
-   if request.method == 'POST':
-        # Collect user input from the form
-        user_input = request.form.to_dict()
+@app.route('/', methods=['POST'])
+def predict():
+    if request.method == 'POST':
+        # Parse JSON data sent from the frontend
+        data = request.json
 
-        # Convert user input to a suitable format for the model
+        # Extract necessary fields from the data
+        squareMeters = data.get('squareMeters', 0)
+        floors = data.get('floors', 0)
+        numPrevOwners = data.get('numPrevOwners', 0)
+        basement = data.get('basement', 0)
+        garage = data.get('garage', 0)
+        numberOfRooms = data.get('numberOfRooms', 0)
+        cityPartRange = data.get('cityPartRange', 0)
+        made = data.get('made', 0)
+        attic = data.get('attic', 0)
+        hasGuestRoom = data.get('hasGuestRoom', 0)
+        hasYard = data.get('hasYard', 0)
+        isNewBuilt = data.get('isNewBuilt', 0)
+        hasStorageRoom = data.get('hasStorageRoom', 0)
+        hasBalcony = data.get('hasBalcony', 0)
+        hasAirCondition = data.get('hasAirCondition', 0)
+        hasSecuritySystem = data.get('hasSecuritySystem', 0)
+        hasPool = data.get('hasPool', 0)
+        hasStormProtector = data.get('hasStormProtector', 0)
+        hasFirePlace = data.get('hasFirePlace', 0)
+        hasSolarPanels = data.get('hasSolarPanels', 0)
+        hasView = data.get('hasView', 0)
+
+        # Convert data to a suitable format for the model
         model_input = np.array([
-            float(user_input.get('squareMeters', 0)),
-            int(user_input.get('floors', 0)),
-            int(user_input.get('numPrevOwners', 0)),
-            int(user_input.get('basement', 0)),
-            int(user_input.get('garage', 0)),
-
-            int(user_input.get('numberOfRooms', 0)),
-            int(user_input.get('cityPartRange', 0)),
-            int(user_input.get('made', 0)),
-            int(user_input.get('attic', 0)),
-            int(user_input.get('hasGuestRoom', 0)),
-
-            int(user_input.get('hasYard', 0)),
-            int(user_input.get('isNewBuilt', 0)),
-            int(user_input.get('hasStorageRoom', 0)),
-            int(user_input.get('hasBalcony', 0)),
-            int(user_input.get('hasAirCondition', 0)),
-            int(user_input.get('hasSecuritySystem', 0)),
-            int(user_input.get('hasPool', 0)),
-            int(user_input.get('hasStormProtector', 0)),
-            int(user_input.get('hasFirePlace', 0)),
-            int(user_input.get('hasSolarPanels', 0)),
-            int(user_input.get('hasView', 0)),
+            float(squareMeters),
+            int(floors),
+            int(numPrevOwners),
+            int(basement),
+            int(garage),
+            int(numberOfRooms),
+            int(cityPartRange),
+            int(made),
+            int(attic),
+            int(hasGuestRoom),
+            int(hasYard),
+            int(isNewBuilt),
+            int(hasStorageRoom),
+            int(hasBalcony),
+            int(hasAirCondition),
+            int(hasSecuritySystem),
+            int(hasPool),
+            int(hasStormProtector),
+            int(hasFirePlace),
+            int(hasSolarPanels),
+            int(hasView),
         ]).reshape(1, -1)
 
         # Make prediction
         prediction = model.predict(model_input)[0]
 
-        return jsonify({'prediction': prediction})
+        # Format the prediction to have only two decimal places
+        formatted_prediction = "{:.2f}".format(prediction)
 
-    # return render_template('home.jsx')
+        return jsonify({'prediction': formatted_prediction})
 
 if __name__ == '__main__':
-    app.run(debug=True).run(debug=True)
+    app.run(debug=True)
