@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './home.css'
 import logo from '../../assets/img/houseImage.jpg'; // Adjust the path if necessary
+import Swal from 'sweetalert2';
 
 function Home() {
     const [formData, setFormData] = useState({
@@ -35,35 +36,75 @@ function Home() {
       }));
     };
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      // Implement your form submission logic here
-      console.log(formData);
+      try {
+        const response = await fetch('http://127.0.0.1:5000/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+          // Request successful
+          const data = await response.json();
+          console.log('Response from server:', data);
+          // Reset the form after successful submission if needed
+          handleReset();
+        } else {
+          // Request failed
+          console.error('Failed to send data to server');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     };
+    
   
     const handleReset = () => {
-      setFormData({
-        squareMeters: '',
-        numberOfRooms: '',
-        floors: '',
-        cityPartRange: '',
-        numPrevOwners: '',
-        made: '',
-        basement: '',
-        attic: '',
-        garage: '',
-        hasGuestRoom: '',
-        hasYard: false,
-        hasPool: false,
-        isNewBuilt: false,
-        hasStormProtector: false,
-        hasStorageRoom: false,
-        hasFirePlace: false,
-        hasBalcony: false,
-        hasSolarPanels: false,
-        hasAirCondition: false,
-        hasView: false,
-        hasSecuritySystem: false,
+      // Show a confirmation message before resetting the form
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'Your form data will be reset!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, reset it!',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // If user confirms, reset the form data
+          setFormData({
+            squareMeters: '',
+            numberOfRooms: '',
+            floors: '',
+            cityPartRange: '',
+            numPrevOwners: '',
+            made: '',
+            basement: '',
+            attic: '',
+            garage: '',
+            hasGuestRoom: '',
+            hasYard: false,
+            hasPool: false,
+            isNewBuilt: false,
+            hasStormProtector: false,
+            hasStorageRoom: false,
+            hasFirePlace: false,
+            hasBalcony: false,
+            hasSolarPanels: false,
+            hasAirCondition: false,
+            hasView: false,
+            hasSecuritySystem: false,
+          });
+          // Show a success message
+          Swal.fire(
+            'Reset!',
+            'Your form has been reset.',
+            'success'
+          );
+        }
       });
     };
   
@@ -73,7 +114,7 @@ function Home() {
           <div className="col-md-8 offset-md-2">
             <div className="card">
               <div className="card-header bg-primary text-white text-center">
-                <h2>House Price Prediction</h2>
+                <h2 className="name_container">House Price Prediction</h2>
               </div>
               <div className="card-body">
                 <form onSubmit={handleSubmit} >
@@ -83,6 +124,7 @@ function Home() {
                   </div>
 
                   <div className='right_container'>
+                    <div className='right_containerGap'>
                     <div className='right_upperContainer'>
                       <div className='right_upperRightContainer'>
                         <div>
@@ -367,6 +409,7 @@ function Home() {
                         </div>
 
                       </div>
+                    </div>
                     </div>
                   </div>
 

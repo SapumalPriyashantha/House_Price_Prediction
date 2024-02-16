@@ -55,6 +55,12 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .name_container{
+    position: relative;
+    left: 190px;
+    top: 25px;
+  }
   
   .left_container {
     width: 50%;
@@ -96,12 +102,17 @@
   .right_lowerLeftContainer {
     width: 48%;
   }
+
+  .right_containerGap{
+    position: relative;
+    left: 10px;
+  }
   
   .right_lowerRightContainer input,
   .right_lowerLeftContainer input {
     width: calc(100% - 10px);
   }
-  
+
   .checkbox-label {
     display: inline-block;
     margin-right: 10px;
