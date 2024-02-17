@@ -176,7 +176,7 @@ function Home() {
                         </div>
 
                         <div>
-                        <label htmlFor="numPrevOwners" className="form-label">numPrevOwners</label>
+                        <label htmlFor="numPrevOwners" className="form-label">Num of Pre Owners</label>
                         <input 
                           type="text" 
                           className="form-control" 
@@ -189,7 +189,7 @@ function Home() {
                         </div>
 
                         <div>
-                        <label htmlFor="basement" className="form-label">basement</label>
+                        <label htmlFor="basement" className="form-label">Basement</label>
                         <input 
                           type="text" 
                           className="form-control" 
@@ -202,7 +202,7 @@ function Home() {
                         </div>
 
                         <div>
-                        <label htmlFor="garage" className="form-label">garage</label>
+                        <label htmlFor="garage" className="form-label">Garage</label>
                         <input 
                           type="text" 
                           className="form-control" 
@@ -243,7 +243,7 @@ function Home() {
                         </div>
 
                         <div>
-                          <label htmlFor="made" className="form-label">made</label>
+                          <label htmlFor="made" className="form-label">Made year</label>
                           <input 
                             type="text" 
                             className="form-control" 
@@ -256,7 +256,7 @@ function Home() {
                         </div>
 
                         <div>
-                          <label htmlFor="attic" className="form-label">attic</label>
+                          <label htmlFor="attic" className="form-label">Attic</label>
                           <input 
                             type="text" 
                             className="form-control" 
@@ -269,7 +269,7 @@ function Home() {
                         </div>
 
                         <div>
-                          <label htmlFor="hasGuestRoom" className="form-label">hasGuestRoom</label>
+                          <label htmlFor="hasGuestRoom" className="form-label">Guest Room</label>
                           <input 
                             type="text" 
                             className="form-control" 
@@ -438,8 +438,8 @@ function Home() {
                   
   
                   <div className="d-flex justify-content-between">
-                    <button type="submit" className="btn btn-primary" id="predict-button">Predict</button>
-                    <button type="button" className="btn btn-secondary float-end" onClick={handleReset}>Reset</button>
+                  <button type="button" className="btn btn-secondary float-end" onClick={handleReset}>Reset</button>
+                  <button type="submit" className="btn btn-primary" id="predict-button">Predict</button>
                   </div>
                 </form>
               </div>
